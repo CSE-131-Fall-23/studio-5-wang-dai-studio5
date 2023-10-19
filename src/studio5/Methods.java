@@ -1,7 +1,7 @@
 package studio5;
 
 import edu.princeton.cs.introcs.StdDraw;
-
+import java.lang.Math;
 public class Methods {
 
 	/**
@@ -15,10 +15,17 @@ public class Methods {
 	 */
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
 		double distance = 0;
-		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
-		
+		double xDifference = x2 - x1;
+	    double yDifference = y2 - y1;
+
+	    // Calculate the sum of squared differences
+	    double sumOfSquaredDifferences = Math.pow(xDifference, 2) + Math.pow(yDifference, 2);
+
+	    // Calculate the square root of the sum of squared differences
+	    distance = Math.sqrt(sumOfSquaredDifferences);
 		return distance;
 	}
+
 
 	/**
 	 * Draw a bull's eye at the given location with the given radius.
@@ -34,17 +41,23 @@ public class Methods {
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
 		// suggested rgb values: 0, 109, 219
-
+		StdDraw.setPenColor(0, 109, 219); // Blue color
+	    double blueRingRadius = 3.0/4.0 * radius;
+	    StdDraw.filledCircle(x, y, blueRingRadius);
 		
 
 		// Red ring with 1.0/2.0 the radius
 		// suggested rgb values: 146, 0, 0
-
+	    StdDraw.setPenColor(146, 0, 0); // Red color
+	    double redRingRadius = 1.0/2.0 * radius;
+	    StdDraw.filledCircle(x, y, redRingRadius);
 		
 
 		// Yellow ring with 1.0/4.0 the radius
 		// suggested rgb values: 255, 255, 109
-
+	    StdDraw.setPenColor(255, 255, 109); // Yellow color
+	    double yellowRingRadius = 1.0/4.0 * radius;
+	    StdDraw.filledCircle(x, y, yellowRingRadius);
 		
 	}
 
